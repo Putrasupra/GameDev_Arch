@@ -1,2 +1,2 @@
 # GameDev_Arch
-Just A repository for my homework in UeU
+Just A repository for my homework at UeU
