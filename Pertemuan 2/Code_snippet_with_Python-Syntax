@@ -1,0 +1,50 @@
+def enemy_ai():
+    # START
+
+    while True:
+
+        # Read Player Position
+        player_position = read_player_position()
+
+        # Player In Range?
+        if player_in_range(player_position):
+
+            # Calculate Path With A*
+            path = calculate_path_a_star(
+                enemy_position=get_enemy_position(),
+                player_position=player_position
+            )
+
+            # Path Found?
+            if path:
+
+                # Move To Next Waypoint
+                move_to_next_waypoint(path)
+
+            else:
+
+                # Hold Position
+                hold_position()
+
+        else:
+
+            # Hold Position
+            hold_position()
+
+        # Enemy Reaches Player?
+        if enemy_reaches_player():
+
+            # Player Game Over
+            player_game_over()
+
+            # END
+            break
+
+        else:
+
+            # Move Toward Player
+            move_toward_player()
+
+
+# Menjalankan AI
+enemy_ai()
