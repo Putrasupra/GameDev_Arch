@@ -7,3 +7,5 @@ Selanjutnya melkukan pengecekan jarak,
 Jika player berada dalam jangkauan,
 Algoritma A* akan melakukan kalkulasi untuk mencari rute,
 Musuh bergerak mengikuti algoritma menuju player.
+
+Flowchart dirancang sebagai Case gambaran game Pacman 
