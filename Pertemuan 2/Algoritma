@@ -1,0 +1,9 @@
+TUGAS PERTEMUAN 2 
+
+Algoritma yang digunakan adalah A* pathfinding.
+
+skenarionya dimulai dari musuh yang membaca apakah player berada dalam radius jangkauan,
+Selanjutnya melkukan pengecekan jarak,
+Jika player berada dalam jangkauan,
+Algoritma A* akan melakukan kalkulasi untuk mencari rute,
+Musuh bergerak mengikuti algoritma menuju player.
