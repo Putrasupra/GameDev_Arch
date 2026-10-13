@@ -1,0 +1,79 @@
+n = 4
+src = 'A'
+des = 'B'
+aux = 'C'
+
+def move_disks(n, src, des, aux):
+    if n == 1:
+        print(f"Move disk 1 from {src} to {des}")
+        return
+    move_disks(n - 1, src, aux, des)
+    print(f"Move disk {n} from {src} to {des}")
+    move_disks(n - 1, aux, des, src)
+
+move_disks(n, src, des, aux)
+
+
+# penjelasan, program tersebut menggunakan fungsi rekursif untuk memanggil dirinya sendiri. 
+step by stepnya:
+
+1. Move disk 1 from A to C
+- Cakram 1 merupakan cakram terkecil dan berada di posisi paling atas pada tiang A.
+- Cakram ini dipindahkan ke tiang C sebagai langkah awal untuk membuka akses ke cakram yang lebih besar di bawahnya.
+- Perpindahan ini sah karena cakram 1 tidak terhalang oleh cakram lain.
+2. Move disk 2 from A to B
+- Setelah cakram 1 dipindahkan, cakram 2 menjadi cakram teratas di A.
+- Cakram 2 dipindahkan ke B yang masih kosong.
+- Langkah ini mempersiapkan posisi agar cakram 1 nantinya bisa diletakkan di atas cakram 2.
+3. Move disk 1 from C to B
+- Cakram 1 dipindahkan dari C ke B, tepat di atas cakram 2.
+- Perpindahan ini diperbolehkan karena cakram 1 lebih kecil daripada cakram 2.
+- Dengan demikian, dua cakram terkecil sudah tersusun dengan benar di B.
+4. Move disk 3 from A to C
+- Setelah cakram 1 dan 2 dipindahkan dari A, cakram 3 menjadi cakram teratas di A.
+- Cakram 3 dipindahkan ke C untuk mempersiapkan pemindahan cakram terbesar.
+- Namun, cakram 3 hanya boleh dipindahkan jika tiang C tidak memiliki cakram yang lebih kecil di atasnya.
+5. Move disk 1 from B to A
+- Cakram 1 dipindahkan dari B ke A untuk membuka akses ke cakram 2 yang berada di bawahnya.
+- Cakram 1 dapat diletakkan di A karena ukurannya lebih kecil daripada cakram 4 yang sudah berada di sana.
+- Langkah ini membantu menyiapkan pemindahan cakram 2.
+6. Move disk 2 from B to C
+- Cakram 2 dipindahkan dari B ke C untuk mempersiapkan penyusunan cakram kecil.
+- Namun, jika cakram 3 masih berada di C, perpindahan ini tidak sah karena cakram 2 lebih kecil daripada cakram 3.
+- Karena itu, kondisi posisi cakram perlu diperiksa kembali agar tidak melanggar aturan Tower of Hanoi.
+7. Move disk 1 from A to C
+- Cakram 1 dipindahkan dari A ke C untuk menyelesaikan pengaturan posisi cakram kecil.
+- Perpindahan ini bertujuan mempersiapkan jalur pemindahan cakram terbesar.
+- Cakram 1 hanya dapat diletakkan di C jika cakram teratas di sana lebih besar daripada cakram 1 atau tiangnya kosong.
+8. Move disk 4 from A to B
+- Cakram 4 merupakan cakram terbesar dan berada di bagian paling bawah susunan awal.
+- Setelah cakram yang lebih kecil disingkirkan dari atasnya, cakram 4 dipindahkan dari A ke B.
+- Ini merupakan langkah utama dalam algoritma karena cakram terbesar harus berada di bagian paling bawah susunan akhir.
+9. Move disk 1 from C to B
+- Cakram 1 dipindahkan dari C ke B untuk mulai menyusun kembali cakram kecil di atas cakram terbesar.
+- Perpindahan ini diperbolehkan jika posisi teratas di B kosong atau ditempati cakram yang lebih besar.
+- Langkah ini merupakan bagian dari proses penyelesaian pemindahan seluruh cakram.
+10. Move disk 2 from C to A
+- Cakram 2 dipindahkan dari C ke A untuk membuka ruang bagi cakram lain.
+- Tiang A digunakan sementara sebagai tempat penyimpanan cakram agar susunan akhir dapat dibentuk secara bertahap.
+- Perpindahan ini harus dilakukan ketika cakram 2 berada di posisi teratas C.
+11. Move disk 1 from B to A
+- Cakram 1 dipindahkan dari B ke A dan diletakkan di atas cakram 2.
+- Hal ini diperbolehkan karena cakram 1 lebih kecil daripada cakram 2.
+- Setelah langkah ini, dua cakram kecil tersusun dengan benar di A.
+12. Move disk 3 from C to B
+- Cakram 3 dipindahkan dari C ke B untuk ditempatkan di atas cakram 4.
+- Perpindahan ini diperbolehkan karena cakram 3 lebih kecil daripada cakram 4.
+- Langkah ini membentuk bagian bawah susunan akhir di tiang B.
+13. Move disk 1 from A to C
+- Cakram 1 dipindahkan dari A ke C untuk membuka akses ke cakram 2.
+- Tiang C digunakan sebagai tempat sementara agar cakram 2 dapat dipindahkan ke B.
+- Langkah ini diperlukan untuk menyelesaikan penyusunan cakram kecil.
+14. Move disk 2 from A to B
+- Cakram 2 dipindahkan dari A ke B dan diletakkan di atas cakram 3.
+- Penempatan ini sah karena cakram 2 lebih kecil daripada cakram 3.
+- Setelah langkah ini, hanya cakram 1 yang tersisa untuk dipindahkan ke tujuan akhir.
+15. Move disk 1 from C to B
+- Cakram 1 dipindahkan dari C ke B sebagai langkah terakhir.
+- Cakram tersebut diletakkan di atas cakram 2 karena ukurannya paling kecil.
+- Seluruh cakram akhirnya berada di B dengan urutan yang benar.
